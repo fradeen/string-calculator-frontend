@@ -18,10 +18,13 @@ describe('test sum function', () => {
         expect(sum('//[:]\n1:2:3')).toBe(6)
     })
     test.concurrent('passing string with no header', async ({ expect }) => {
-        expect(() => sum('1,2')).toThrowError(/No header provided./)
+        expect(sum('1,2')).toBe(3)
     })
     test.concurrent('passing header with no delimiter', async ({ expect }) => {
-        expect(() => sum('//\n1,2')).toThrowError(/No delimiter provided./)
+        expect(() => sum('//\n1,2')).toThrowError(/No delimiters provided./)
+    })
+    test.concurrent('passing header with empty delimiter', async ({ expect }) => {
+        expect(() => sum('//**\n1,2')).toThrowError(/No delimiters provided/)
     })
     test.concurrent('passing multi-character delimiter', async ({ expect }) => {
         expect(sum('//[,:]\n1,:2')).toBe(3)
