@@ -39,7 +39,7 @@ h1 {
 button,
 input {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #f9f9f9;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -53,14 +53,24 @@ form {
   display: flex;
   gap: 2rem;
   align-items: center;
+  flex-direction: column;
 }
 
 button:hover {
   border-color: #646cff;
 }
 
+input:hover {
+  border-color: #646cff;
+}
+
 button:focus,
 button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input:focus,
+input:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -76,5 +86,17 @@ button:focus-visible {
 
   button {
     background-color: #f9f9f9;
+    border: 1px solid #1a1a1a;
+  }
+
+  input {
+    background-color: #f9f9f9;
+    border: 1px solid #1a1a1a;
+  }
+}
+
+@media (min-width: 640px) {
+  form {
+    flex-direction: row;
   }
 }
