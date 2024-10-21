@@ -74,5 +74,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: ./.vercel/output/static
-          command: pages deploy dist --project-name=string-calculator
+          workingDirectory: ./dist
+          command: pages deploy . --project-name=string-calculator
